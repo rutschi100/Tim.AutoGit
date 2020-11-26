@@ -6,7 +6,7 @@ namespace Tim.AutoGit
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
