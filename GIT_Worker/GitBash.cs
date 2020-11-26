@@ -29,7 +29,7 @@ namespace GIT_Worker
             {
                 string date = DateTime.Today.ToString();
                 date = date.Substring(0, 10);
-                return CMD.CommandOutput($"git add -A && git commit -m {date}", repoPath);
+                return CMD.CommandOutput($"git add * && git commit -m {date}", repoPath);
             }
             else
             {
