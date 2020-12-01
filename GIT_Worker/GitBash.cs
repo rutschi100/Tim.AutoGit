@@ -16,33 +16,36 @@ namespace GIT_Worker
         }
 
         /// <summary>
-        /// Übernimmt alle Änderungen und führt zugleich ein Commit aus.
-        /// Falls kein Kommentar angegeben wird, so wird das aktuelle Datum gewählt.
+        /// Applies all changes and executes a commit at the same time.
+        /// If no comment is given, the current date is selected.
         /// </summary>
-        /// <param name="comment">Commit-Kommentar</param>
-        /// <returns>Konsole-Ergebnis</returns>
+        /// <param name="comment">Commit Comment</param>
+        /// <returns>Console result</returns>
         public string StageAllAndCommit(string comment = null)
         {
-            StartRepoIfNOtExists();
+            var result = StartRepoIfNOtExists();
 
             if (string.IsNullOrEmpty(comment))
             {
                 string date = DateTime.Today.ToString();
                 date = date.Substring(0, 10);
-                return CMD.CommandOutput($"git add * && git commit -m {date}", repoPath);
+                result += "\n" + CMD.CommandOutput($"git add * && git commit -m {date}", repoPath);
+                return result;
             }
             else
             {
-                return CMD.CommandOutput(comment, repoPath);
+                result += "\n" + CMD.CommandOutput(comment, repoPath);
+                return result;
             }
         }
 
-        private void StartRepoIfNOtExists()
+        private string StartRepoIfNOtExists()
         {
             if (! Directory.Exists(repoPath + @"\.git"))
             {
-                Console.WriteLine(CMD.CommandOutput($"git init", repoPath));
+                return CMD.CommandOutput($"git init", repoPath);
             }
+            return null;
         }
 
 
