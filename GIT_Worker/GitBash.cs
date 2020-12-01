@@ -16,11 +16,11 @@ namespace GIT_Worker
         }
 
         /// <summary>
-        /// Übernimmt alle Änderungen und führt zugleich ein Commit aus.
-        /// Falls kein Kommentar angegeben wird, so wird das aktuelle Datum gewählt.
+        /// Applies all changes and executes a commit at the same time.
+        /// If no comment is given, the current date is selected.
         /// </summary>
-        /// <param name="comment">Commit-Kommentar</param>
-        /// <returns>Konsole-Ergebnis</returns>
+        /// <param name="comment">Commit Comment</param>
+        /// <returns>Console result</returns>
         public string StageAllAndCommit(string comment = null)
         {
             var result = StartRepoIfNOtExists();
