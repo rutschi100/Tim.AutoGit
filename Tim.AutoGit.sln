@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tim.AutoGit", "Tim.AutoGit\Tim.AutoGit.csproj", "{91EB22D1-530E-4312-B7AF-B0F92E1FEDC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tim.AutoGit", "Tim.AutoGit\Tim.AutoGit.csproj", "{91EB22D1-530E-4312-B7AF-B0F92E1FEDC0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMDRunner", "C:\Users\timru\source\repos\Tim.AutoGit\CMDRunner\CMDRunner.csproj", "{4BA71A73-C99E-4A85-967A-40AC25ACD298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMDRunner", "CMDRunner\CMDRunner.csproj", "{A64C7116-8D19-4284-BF71-83C682145E05}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GIT_Worker", "C:\Users\timru\source\repos\Tim.AutoGit\GIT_Worker\GIT_Worker.csproj", "{7406295B-CB91-46C2-9266-ED6EBAF856E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GIT_Worker", "GIT_Worker\GIT_Worker.csproj", "{BE3D8AAB-72AA-414F-AE10-640C3BC766C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{91EB22D1-530E-4312-B7AF-B0F92E1FEDC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91EB22D1-530E-4312-B7AF-B0F92E1FEDC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91EB22D1-530E-4312-B7AF-B0F92E1FEDC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4BA71A73-C99E-4A85-967A-40AC25ACD298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BA71A73-C99E-4A85-967A-40AC25ACD298}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BA71A73-C99E-4A85-967A-40AC25ACD298}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BA71A73-C99E-4A85-967A-40AC25ACD298}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7406295B-CB91-46C2-9266-ED6EBAF856E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7406295B-CB91-46C2-9266-ED6EBAF856E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7406295B-CB91-46C2-9266-ED6EBAF856E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7406295B-CB91-46C2-9266-ED6EBAF856E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A64C7116-8D19-4284-BF71-83C682145E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A64C7116-8D19-4284-BF71-83C682145E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A64C7116-8D19-4284-BF71-83C682145E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A64C7116-8D19-4284-BF71-83C682145E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE3D8AAB-72AA-414F-AE10-640C3BC766C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE3D8AAB-72AA-414F-AE10-640C3BC766C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE3D8AAB-72AA-414F-AE10-640C3BC766C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3D8AAB-72AA-414F-AE10-640C3BC766C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

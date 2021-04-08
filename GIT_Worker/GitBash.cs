@@ -1,23 +1,22 @@
-﻿using CMDRunner;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using System.Globalization;
 using System.IO;
-using System.Text;
+using CMDRunner;
 
 namespace GIT_Worker
 {
     public class GitBash
     {
-        private readonly string repoPath;
+        private readonly string _repoPath;
 
         public GitBash(string repoPath)
         {
-            this.repoPath = repoPath;
+            this._repoPath = repoPath;
         }
 
         /// <summary>
-        /// Applies all changes and executes a commit at the same time.
-        /// If no comment is given, the current date is selected.
+        ///     Applies all changes and executes a commit at the same time.
+        ///     If no comment is given, the current date is selected.
         /// </summary>
         /// <param name="comment">Commit Comment</param>
         /// <returns>Console result</returns>
@@ -27,27 +26,24 @@ namespace GIT_Worker
 
             if (string.IsNullOrEmpty(comment))
             {
-                string date = DateTime.Today.ToString();
+                var date = DateTime.Today.ToString(CultureInfo.InvariantCulture);
                 date = date.Substring(0, 10);
-                result += "\n" + CMD.CommandOutput($"git add * && git commit -m {date}", repoPath);
+                result += "\n" + CMD.CommandOutput($"git add * && git commit -m {date}", _repoPath);
                 return result;
             }
-            else
-            {
-                result += "\n" + CMD.CommandOutput(comment, repoPath);
-                return result;
-            }
+
+            result += "\n" + CMD.CommandOutput(comment, _repoPath);
+            return result;
         }
 
         private string StartRepoIfNOtExists()
         {
-            if (! Directory.Exists(repoPath + @"\.git"))
+            if (!Directory.Exists(_repoPath + @"\.git"))
             {
-                return CMD.CommandOutput($"git init", repoPath);
+                return CMD.CommandOutput("git init", _repoPath);
             }
+
             return null;
         }
-
-
-    }//---End of Class
+    } //---End of Class
 }

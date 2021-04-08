@@ -4,50 +4,50 @@ using GIT_Worker;
 
 namespace Tim.AutoGit
 {
-    class Program
+    internal static class Program
     {
-        private static StreamWriter logFile;
+        private static StreamWriter _logFile;
 
-        static void Main()
+        private static void Main()
         {
             CreateLogFile();
             Log("Start Application---------------------------------");
-            Configuration configuration = new Configuration();
+            var configuration = new Configuration();
 
             foreach (var item in configuration.Repos)
             {
                 Log($"Start with {item}");
-                
-                GitBash gitBash = new GitBash(item);
+
+                var gitBash = new GitBash(item);
 
                 var result = gitBash.StageAllAndCommit();
                 Log(result);
                 Log($"End of {item}");
             }
+
             Log("Close Application---------------------------------");
-            logFile.Close();
+            _logFile.Close();
         }
 
-        static void Log(string text)
+        private static void Log(string text)
         {
             Console.WriteLine(text);
-            logFile.WriteLine($"{DateTime.Now} \t {text}");
+            _logFile.WriteLine($"{DateTime.Now} \t {text}");
         }
 
-        static void CreateLogFile()
+        private static void CreateLogFile()
         {
             var fileName = Directory.GetCurrentDirectory() + @"/AutoGit.log";
             if (!File.Exists(fileName))
             {
                 var file = File.Create(fileName);
                 file.Close();
-                logFile = new StreamWriter(fileName, true);
+                _logFile = new StreamWriter(fileName, true);
             }
             else
             {
-                logFile = new StreamWriter(fileName, true);
+                _logFile = new StreamWriter(fileName, true);
             }
         }
-
     }
 }

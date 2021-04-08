@@ -1,14 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace Tim.AutoGit
 {
     public class Configuration
     {
-        public List<string> Repos { get; set; } = new List<string>();
         public Configuration()
         {
             var configRoot = ConfigHelper.GetConfiguration();
@@ -21,11 +18,12 @@ namespace Tim.AutoGit
             }
         }
 
+        public List<string> Repos { get; set; } = new List<string>();
 
 
         private class ConfigHelper
         {
-            private static readonly string CONFIGURATION_FILE = "jsconfig.json";
+            private const string CONFIGURATION_FILE = "jsconfig.json";
 
             public static IConfigurationRoot GetConfiguration()
             {
