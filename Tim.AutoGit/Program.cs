@@ -1,18 +1,23 @@
 ﻿using System;
 using System.IO;
 using GIT_Worker;
+using SimpleInjector;
+using Tim.AutoGit.Config;
 
 namespace Tim.AutoGit
 {
     internal static class Program
     {
         private static StreamWriter _logFile;
+        private static Container Container { get; } = new Container();
 
         private static void Main()
         {
+            Init();
+
             CreateLogFile();
             Log("Start Application---------------------------------");
-            var configuration = new Configuration();
+            var configuration = Container.GetInstance<IConfiguration>();
 
             foreach (var item in configuration.Repos)
             {
@@ -27,6 +32,12 @@ namespace Tim.AutoGit
 
             Log("Close Application---------------------------------");
             _logFile.Close();
+        }
+
+        private static void Init()
+        {
+            Container.Register<IConfiguration, Configuration>(Lifestyle.Singleton);
+            Container.Verify();
         }
 
         private static void Log(string text)

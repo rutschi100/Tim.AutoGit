@@ -2,9 +2,9 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace Tim.AutoGit
+namespace Tim.AutoGit.Config
 {
-    public class Configuration
+    public class Configuration : IConfiguration
     {
         public Configuration()
         {
