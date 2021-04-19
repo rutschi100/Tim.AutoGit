@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CMDRunner
 {
-    public static class CMD
+    public class CMD : ICMD
     {
         /// <summary>
         ///     Führt ein Kommando auf dem CMD aus.
@@ -12,7 +12,7 @@ namespace CMDRunner
         /// <param name="command">Befehl</param>
         /// <param name="workingDirectory">Wo der Befehl ausgeführt werden soll</param>
         /// <returns>Konsole-Ergebnis</returns>
-        public static string CommandOutput(string command,
+        public string CommandOutput(string command,
             string workingDirectory = null)
         {
             try

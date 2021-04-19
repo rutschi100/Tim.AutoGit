@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Tim.AutoGit.Config
 {
-    interface IConfiguration
+    internal interface IConfiguration
     {
         public List<string> Repos { get; set; }
     }

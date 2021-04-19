@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using CMDRunner;
 using GIT_Worker;
 using SimpleInjector;
 using Tim.AutoGit.Config;
@@ -23,7 +24,9 @@ namespace Tim.AutoGit
             {
                 Log($"Start with {item}");
 
-                var gitBash = new GitBash(item);
+                var gitBash = Container.GetInstance<IGitBash>();
+                gitBash.RepositoryPath = item;
+
 
                 var result = gitBash.StageAllAndCommit();
                 Log(result);
@@ -37,6 +40,8 @@ namespace Tim.AutoGit
         private static void Init()
         {
             Container.Register<IConfiguration, Configuration>(Lifestyle.Singleton);
+            Container.Register<IGitBash, GitBash>(Lifestyle.Transient);
+            Container.Register<ICMD, CMD>(Lifestyle.Singleton);
             Container.Verify();
         }
 
